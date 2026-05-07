@@ -239,8 +239,8 @@
 
     .demo-frame {
       position: relative;
-      min-height: 430px;
-      max-height: 540px;
+      min-height: 390px;
+      max-height: 480px;
       border-radius: 24px;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, .16);
@@ -250,8 +250,8 @@
 
     .demo-frame img {
       width: 100%;
-      height: 430px;
-      max-height: 540px;
+      height: 390px;
+      max-height: 480px;
       object-fit: cover;
       object-position: top center;
       filter: saturate(.94) contrast(1.03);
@@ -266,58 +266,33 @@
         linear-gradient(90deg, rgba(0, 0, 0, .55), transparent 48%);
     }
 
-    .agent-badge {
-      position: absolute;
-      left: 16px;
-      top: 16px;
-      z-index: 2;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 13px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, .17);
-      background: rgba(6, 6, 9, .7);
-      backdrop-filter: blur(18px);
-      color: white;
-      font-size: 12px;
-      font-weight: 850;
-    }
-
-    .agent-badge::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 16px var(--green);
-    }
-
     .play {
       position: absolute;
       z-index: 3;
       left: 50%;
-      top: 47%;
+      top: 43%;
       transform: translate(-50%, -50%);
-      width: 66px;
-      height: 66px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      color: #050506;
-      background: var(--ink);
-      font-size: 30px;
-      box-shadow: 0 0 0 18px rgba(255, 255, 255, .08), 0 0 70px rgba(44, 213, 255, .35);
+      color: rgba(255, 255, 255, .9);
+      background: rgba(8, 8, 10, .34);
+      border: 1px solid rgba(255, 255, 255, .28);
+      backdrop-filter: blur(14px);
+      font-size: 24px;
+      box-shadow: 0 0 0 12px rgba(255, 255, 255, .05), 0 0 42px rgba(44, 213, 255, .18);
     }
 
     .demo-panel {
       position: absolute;
       z-index: 3;
-      left: 16px;
-      right: 16px;
-      bottom: 16px;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
       max-width: 560px;
-      padding: 15px;
+      padding: 14px;
       border-radius: 18px;
       border: 1px solid rgba(255, 255, 255, .16);
       background: rgba(7, 7, 10, .76);
@@ -326,15 +301,15 @@
 
     .demo-panel h2 {
       color: white;
-      font-size: 18px;
-      margin-bottom: 8px;
+      font-size: 17px;
+      margin-bottom: 6px;
     }
 
     .demo-panel p {
       color: #c7c2d4;
       line-height: 1.4;
-      margin-bottom: 12px;
-      font-size: 13px;
+      margin-bottom: 10px;
+      font-size: 12px;
     }
 
     .flow {
@@ -344,7 +319,7 @@
     }
 
     .flow div {
-      padding: 9px;
+      padding: 8px;
       border-radius: 12px;
       background: rgba(255, 255, 255, .08);
       color: white;
@@ -501,11 +476,11 @@
       }
 
       .demo-frame {
-        min-height: clamp(410px, 50vh, 540px);
+        min-height: clamp(380px, 45vh, 480px);
       }
 
       .demo-frame img {
-        height: clamp(410px, 50vh, 540px);
+        height: clamp(380px, 45vh, 480px);
       }
     }
 
@@ -584,7 +559,6 @@
       </div>
 
       <div class="demo-frame">
-        <span class="agent-badge">Evan is ready for screening</span>
         <img src="./Evan%20Mullins%20Moving.png" alt="Evan moving concierge private demo preview" />
         <a class="play" aria-label="Launch Evan private demo" href="https://xagent.aifusionlabs.app/demo/evan">&#9654;</a>
         <div class="demo-panel">
