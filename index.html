@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Evan | Private Screening Room for Mullins Moving</title>
+  <meta name="description" content="Private X Agent screening room prepared for Mullins Moving." />
+  <style>
+    :root {
+      --bg: #050506;
+      --ink: #f7f3e8;
+      --muted: #a8a1b4;
+      --line: rgba(255, 255, 255, .13);
+      --violet: #6a5cff;
+      --cyan: #2cd5ff;
+      --green: #3af0a3;
+      --amber: #e7c36a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(106, 92, 255, .24), transparent 34rem),
+        radial-gradient(circle at 88% 8%, rgba(44, 213, 255, .16), transparent 28rem),
+        linear-gradient(180deg, #050506 0%, #0a090e 42%, #050506 100%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .page {
+      width: min(1380px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 26px 0 48px;
+    }
+
+    .screening-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(7, 7, 10, .72);
+      backdrop-filter: blur(18px);
+      position: sticky;
+      top: 14px;
+      z-index: 10;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .36);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      font-weight: 950;
+      background: linear-gradient(135deg, var(--violet), var(--cyan));
+      box-shadow: 0 16px 34px rgba(78, 105, 255, .42);
+    }
+
+    .brand b {
+      display: block;
+      color: white;
+      font-size: 14px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .bar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 0 13px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .055);
+      color: #dfdcea;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .pill::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 16px var(--green);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      color: white;
+      font-size: 14px;
+      font-weight: 900;
+      white-space: nowrap;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, .24);
+    }
+
+    .btn.primary {
+      border: 0;
+      background: linear-gradient(135deg, var(--violet), var(--cyan));
+      box-shadow: 0 18px 42px rgba(74, 101, 255, .34);
+    }
+
+    .btn.light {
+      color: #08080a;
+      border: 0;
+      background: var(--ink);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(390px, 1.08fr);
+      gap: clamp(28px, 5vw, 72px);
+      align-items: center;
+      min-height: calc(100vh - 102px);
+      padding: 54px 0 34px;
+    }
+
+    .hero-copy { min-width: 0; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #dbd7ff;
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 18px var(--cyan);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      color: white;
+      font-size: clamp(38px, 6vw, 78px);
+      line-height: .94;
+      letter-spacing: -.045em;
+      margin-bottom: 22px;
+      max-width: 820px;
+    }
+
+    .lead {
+      color: #d4cfdf;
+      font-size: clamp(16px, 1.45vw, 20px);
+      line-height: 1.5;
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    .client-card {
+      display: grid;
+      grid-template-columns: 64px minmax(0, 1fr);
+      gap: 16px;
+      align-items: center;
+      width: min(100%, 560px);
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, .055);
+      margin: 26px 0;
+    }
+
+    .client-logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 20px;
+      font-weight: 950;
+      background:
+        linear-gradient(135deg, rgba(58, 240, 163, .24), rgba(44, 213, 255, .12)),
+        rgba(255, 255, 255, .06);
+      border: 1px solid rgba(58, 240, 163, .25);
+    }
+
+    .client-card b { color: white; display: block; margin-bottom: 4px; }
+    .client-card span { color: var(--muted); line-height: 1.4; font-size: 14px; }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .confidential {
+      max-width: 600px;
+      color: #858094;
+      font-size: 12px;
+      line-height: 1.45;
+      border-left: 2px solid rgba(231, 195, 106, .55);
+      padding-left: 14px;
+    }
+
+    .demo-frame {
+      position: relative;
+      min-height: 650px;
+      max-height: 760px;
+      border-radius: 36px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .16);
+      background: #0b0b0e;
+      box-shadow: 0 55px 120px rgba(0, 0, 0, .55);
+    }
+
+    .demo-frame img {
+      width: 100%;
+      height: 650px;
+      max-height: 760px;
+      object-fit: cover;
+      object-position: top center;
+      filter: saturate(.94) contrast(1.03);
+    }
+
+    .demo-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, .02), rgba(0, 0, 0, .15) 42%, rgba(0, 0, 0, .9)),
+        linear-gradient(90deg, rgba(0, 0, 0, .55), transparent 48%);
+    }
+
+    .agent-badge {
+      position: absolute;
+      left: 22px;
+      top: 22px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .17);
+      background: rgba(6, 6, 9, .7);
+      backdrop-filter: blur(18px);
+      color: white;
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .agent-badge::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 16px var(--green);
+    }
+
+    .play {
+      position: absolute;
+      z-index: 3;
+      left: 50%;
+      top: 47%;
+      transform: translate(-50%, -50%);
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #050506;
+      background: var(--ink);
+      font-size: 30px;
+      box-shadow: 0 0 0 18px rgba(255, 255, 255, .08), 0 0 70px rgba(44, 213, 255, .35);
+    }
+
+    .demo-panel {
+      position: absolute;
+      z-index: 3;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      max-width: 560px;
+      padding: 20px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, .16);
+      background: rgba(7, 7, 10, .76);
+      backdrop-filter: blur(18px);
+    }
+
+    .demo-panel h2 {
+      color: white;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .demo-panel p {
+      color: #c7c2d4;
+      line-height: 1.45;
+      margin-bottom: 16px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .flow div {
+      padding: 12px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, .08);
+      color: white;
+      font-size: 12px;
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .sections {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+      margin-top: 10px;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, .055);
+      padding: clamp(22px, 3vw, 32px);
+    }
+
+    .panel h2 {
+      color: white;
+      font-size: clamp(26px, 3vw, 42px);
+      letter-spacing: -.035em;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .panel p {
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 0;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .check {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(0, 0, 0, .22);
+      border: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .check i {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      color: #06110b;
+      background: var(--green);
+      font-style: normal;
+      font-weight: 950;
+    }
+
+    .check b { color: white; display: block; margin-bottom: 3px; }
+    .check span { color: var(--muted); line-height: 1.42; font-size: 14px; }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .score {
+      padding: 17px;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, .23);
+      border: 1px solid rgba(255, 255, 255, .09);
+    }
+
+    .score b {
+      display: block;
+      color: white;
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+
+    .score span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .footer-cta {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: center;
+      margin-top: 18px;
+      padding: clamp(22px, 3vw, 34px);
+      border-radius: 30px;
+      border: 1px solid rgba(44, 213, 255, .18);
+      background:
+        linear-gradient(135deg, rgba(106, 92, 255, .18), rgba(44, 213, 255, .08)),
+        rgba(255, 255, 255, .055);
+    }
+
+    .footer-cta h2 {
+      color: white;
+      font-size: clamp(26px, 4vw, 48px);
+      line-height: 1;
+      letter-spacing: -.04em;
+      margin-bottom: 8px;
+    }
+
+    .footer-cta p {
+      color: #cfcade;
+      margin-bottom: 0;
+      line-height: 1.45;
+    }
+
+    @media (min-width: 981px) {
+      .screening-bar {
+        width: min(100%, 1160px);
+        margin: 0 auto;
+      }
+
+      .hero {
+        grid-template-columns: minmax(440px, .88fr) minmax(480px, 1.12fr);
+        min-height: calc(100vh - 96px);
+      }
+
+      .demo-frame {
+        min-height: clamp(620px, 68vh, 760px);
+      }
+
+      .demo-frame img {
+        height: clamp(620px, 68vh, 760px);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero, .sections, .footer-cta { grid-template-columns: 1fr; }
+      .demo-frame, .demo-frame img { min-height: 560px; height: 560px; }
+      .footer-cta .btn { width: 100%; }
+    }
+
+    @media (max-width: 620px) {
+      .page { width: min(100% - 28px, 1380px); padding-top: 14px; }
+      .screening-bar { align-items: flex-start; top: 8px; border-radius: 18px; padding: 10px; }
+      .bar-actions .pill { display: none; }
+      .brand b { font-size: 12px; letter-spacing: .05em; }
+      .brand span { font-size: 11px; }
+      .mark { width: 34px; height: 34px; border-radius: 11px; }
+      .bar-actions .btn { min-height: 38px; padding: 0 11px; font-size: 12px; border-radius: 12px; }
+      .hero { padding-top: 28px; gap: 24px; }
+      .eyebrow { font-size: 10px; letter-spacing: .14em; margin-bottom: 16px; }
+      h1 { font-size: 32px; line-height: 1; letter-spacing: -.03em; margin-bottom: 18px; }
+      .lead { font-size: 14px; line-height: 1.5; margin-bottom: 22px; }
+      .client-card { grid-template-columns: 52px minmax(0, 1fr); gap: 13px; padding: 14px; border-radius: 20px; margin: 20px 0; }
+      .client-logo { width: 52px; height: 52px; border-radius: 15px; font-size: 18px; }
+      .client-card span { font-size: 13px; }
+      .btn { min-height: 44px; border-radius: 13px; }
+      .hero-actions, .flow, .score-grid { grid-template-columns: 1fr; display: grid; }
+      .hero-actions .btn { width: 100%; }
+      .demo-frame, .demo-frame img { min-height: 520px; height: 520px; }
+      .play { width: 78px; height: 78px; }
+      .flow { grid-template-columns: repeat(2, 1fr); }
+      .demo-panel { left: 14px; right: 14px; bottom: 14px; padding: 16px; border-radius: 20px; }
+      .demo-panel h2 { font-size: 20px; }
+      .demo-panel p { font-size: 14px; }
+      .panel { border-radius: 22px; }
+      .panel h2 { font-size: 24px; line-height: 1.04; }
+      .footer-cta { border-radius: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="screening-bar">
+      <div class="brand">
+        <div class="mark">X</div>
+        <div>
+          <b>Private Screening Room</b>
+          <span>Prepared by AI Fusion Labs</span>
+        </div>
+      </div>
+      <div class="bar-actions">
+        <span class="pill">Unlisted demo room</span>
+        <a class="btn primary" href="https://xagent.aifusionlabs.app/demo/evan">Review Evan</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Prepared for Mullins Moving</div>
+        <h1>Meet Evan, your moving concierge built around new-user questions and quote intake.</h1>
+        <p class="lead">Evan was created to show how Mullins Moving could capture more qualified quote requests, answer repeat service questions, and reduce front-office follow-up without making customers feel like they are talking to a generic bot. Evan is available 24/7, 365 days a year.</p>
+
+        <div class="client-card">
+          <div class="client-logo">MM</div>
+          <div>
+            <b>Spec X Agent: Evan</b>
+            <span>Built around Mullins Moving quote intake, service-area questions, packing FAQs, after-hours lead capture, and sales handoff.</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="https://xagent.aifusionlabs.app/demo/evan">Review Evan</a>
+          <a class="btn" href="#test">What to test</a>
+          <a class="btn light" href="#next">Schedule pilot discussion</a>
+        </div>
+
+        <p class="confidential">Private preview page. This concept is unlisted and intended only for the Mullins Moving team reviewing the proposed X Agent workflow.</p>
+      </div>
+
+      <div class="demo-frame">
+        <span class="agent-badge">Evan is ready for screening</span>
+        <img src="./Evan%20Mullins%20Moving.png" alt="Evan moving concierge private demo preview" />
+        <a class="play" aria-label="Launch Evan private demo" href="https://xagent.aifusionlabs.app/demo/evan">&#9654;</a>
+        <div class="demo-panel">
+          <h2>Private Evan demo</h2>
+          <p>Simulate a visitor asking for a moving quote, then watch Evan collect the details your team needs for a clean follow-up.</p>
+          <div class="flow">
+            <div>Visitor need</div>
+            <div>Agent intake</div>
+            <div>Lead summary</div>
+            <div>Team handoff</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sections">
+      <div class="panel">
+        <h2>What Evan is designed to handle</h2>
+        <p>Evan is framed around a real moving customer journey: someone researching a move, trying to understand cost, timing, availability, packing, and next steps before they are ready to speak with the office.</p>
+
+        <div class="checklist">
+          <div class="check">
+            <i>&#10003;</i>
+            <div><b>Quote qualification</b><span>Collects origin, destination, timing, move size, special items, and preferred contact method.</span></div>
+          </div>
+          <div class="check">
+            <i>&#10003;</i>
+            <div><b>Approved answers only</b><span>Answers from Mullins-approved information and escalates uncertain questions instead of guessing.</span></div>
+          </div>
+          <div class="check">
+            <i>&#10003;</i>
+            <div><b>Email handoff package</b><span>Sends the customer a thank-you summary, sends Mullins qualified lead details, and sends session notes with timestamps. CRM tooling can be added on request.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="test" class="panel">
+        <h2>What to test</h2>
+        <p>Try the kinds of questions a real moving prospect would ask, then note anything Evan should know, avoid, or hand off to the team.</p>
+
+        <div class="score-grid">
+          <div class="score"><b>01</b><span>Can you move me from Phoenix to Flagstaff?</span></div>
+          <div class="score"><b>02</b><span>Can you help pack fragile items?</span></div>
+          <div class="score"><b>03</b><span>How soon can I get a quote?</span></div>
+          <div class="score"><b>04</b><span>What information do you need from me?</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="next" class="footer-cta">
+      <div>
+        <h2>Ready to refine Evan for a real pilot?</h2>
+        <p>Send feedback, flag missing Mullins Moving knowledge, or schedule a short pilot discussion with AI Fusion Labs.</p>
+      </div>
+      <a class="btn primary" href="https://xagent.aifusionlabs.app/#beta-signup">Schedule pilot discussion</a>
+    </section>
+  </main>
+</body>
+</html>

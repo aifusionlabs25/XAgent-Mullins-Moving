@@ -1,0 +1,7 @@
+KB/
+KB_backup_*/
+*.docx
+*.pdf
+*.txt
+!.gitignore
+
