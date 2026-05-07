@@ -135,6 +135,7 @@
       font-weight: 900;
       white-space: nowrap;
       transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      cursor: pointer;
     }
 
     .btn:hover {
@@ -152,6 +153,11 @@
       color: #08080a;
       border: 0;
       background: var(--ink);
+    }
+
+    button.btn,
+    button.contact-chip {
+      font: inherit;
     }
 
     .hero {
@@ -454,6 +460,7 @@
     .contact-chip {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       min-height: 34px;
       padding: 0 12px;
       border-radius: 999px;
@@ -462,7 +469,143 @@
       background: rgba(0, 0, 0, .18);
       font-size: 12px;
       font-weight: 800;
+      cursor: pointer;
     }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      place-items: center;
+      padding: 22px;
+      background: rgba(3, 3, 6, .76);
+      backdrop-filter: blur(18px);
+      z-index: 30;
+    }
+
+    .modal.is-open {
+      display: grid;
+    }
+
+    .modal-card {
+      width: min(100%, 650px);
+      max-height: min(780px, calc(100vh - 44px));
+      overflow: auto;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, .16);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .03)),
+        #09090d;
+      box-shadow: 0 40px 120px rgba(0, 0, 0, .68);
+    }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      padding: 24px 24px 0;
+    }
+
+    .modal-kicker {
+      color: var(--cyan);
+      font-size: 10px;
+      font-weight: 950;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .modal h2 {
+      color: white;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1;
+      letter-spacing: -.035em;
+      margin-bottom: 8px;
+    }
+
+    .modal p {
+      color: #c9c4d4;
+      line-height: 1.48;
+      margin-bottom: 0;
+    }
+
+    .modal-close {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 50%;
+      color: white;
+      background: rgba(255, 255, 255, .07);
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .pilot-form {
+      display: grid;
+      gap: 15px;
+      padding: 22px 24px 24px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      color: #ded9ea;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 12px;
+      color: white;
+      background: rgba(255, 255, 255, .07);
+      padding: 12px 13px;
+      font: inherit;
+      outline: 0;
+    }
+
+    .field textarea {
+      min-height: 104px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(44, 213, 255, .62);
+      box-shadow: 0 0 0 3px rgba(44, 213, 255, .12);
+    }
+
+    .form-status {
+      min-height: 18px;
+      color: #f2d98a;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .form-status.success { color: var(--green); }
+    .form-status.error { color: #ff8a8a; }
 
     @media (min-width: 981px) {
       .screening-bar {
@@ -517,6 +660,10 @@
       .panel h2 { font-size: 24px; line-height: 1.04; }
       .footer-cta { border-radius: 24px; }
       .contact-strip { display: grid; }
+      .modal { padding: 14px; }
+      .modal-head { padding: 20px 18px 0; }
+      .pilot-form { padding: 18px; }
+      .form-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -552,7 +699,7 @@
         <div class="hero-actions">
           <a class="btn primary" href="https://xagent.aifusionlabs.app/demo/evan?returnUrl=https%3A%2F%2Fx-agent-mullins-moving.vercel.app%2F">Review Evan</a>
           <a class="btn" href="#test">What to test</a>
-          <a class="btn light" href="#next">Schedule pilot discussion</a>
+          <button class="btn light" type="button" data-open-pilot>Schedule pilot discussion</button>
         </div>
 
         <p class="confidential">Private preview page. This concept is unlisted and intended only for the Mullins Moving team reviewing the proposed X Agent workflow.</p>
@@ -613,12 +760,116 @@
         <h2>Ready to refine Evan for a real pilot?</h2>
         <p>Send feedback, flag missing Mullins Moving knowledge, or schedule a short pilot discussion with AI Fusion Labs.</p>
         <div class="contact-strip" aria-label="Private follow-up options">
-          <a class="contact-chip" href="mailto:hello@aifusionlabs.app?subject=Mullins%20Moving%20-%20Evan%20Pilot%20Discussion">Email AI Fusion Labs</a>
-          <a class="contact-chip" href="mailto:hello@aifusionlabs.app?subject=Mullins%20Moving%20-%20Evan%20Feedback">Send Evan feedback</a>
+          <button class="contact-chip" type="button" data-open-pilot>Email AI Fusion Labs</button>
+          <button class="contact-chip" type="button" data-open-pilot>Send Evan feedback</button>
         </div>
       </div>
-      <a class="btn primary" href="mailto:hello@aifusionlabs.app?subject=Mullins%20Moving%20-%20Evan%20Pilot%20Discussion">Schedule pilot discussion</a>
+      <button class="btn primary" type="button" data-open-pilot>Schedule pilot discussion</button>
     </section>
   </main>
+
+  <div class="modal" id="pilot-modal" role="dialog" aria-modal="true" aria-labelledby="pilot-title">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <div class="modal-kicker">Private pilot request</div>
+          <h2 id="pilot-title">Schedule a pilot discussion</h2>
+          <p>Send AI Fusion Labs your contact details and notes for Evan. We will follow up directly to refine the Mullins Moving pilot.</p>
+        </div>
+        <button class="modal-close" type="button" aria-label="Close pilot form" data-close-pilot>&times;</button>
+      </div>
+
+      <form class="pilot-form" id="pilot-form">
+        <div class="form-grid">
+          <div class="field">
+            <label for="pilot-name">Name</label>
+            <input id="pilot-name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label for="pilot-email">Email</label>
+            <input id="pilot-email" name="email" type="email" autocomplete="email" required placeholder="you@company.com" />
+          </div>
+          <div class="field full">
+            <label for="pilot-company">Company / Role</label>
+            <input id="pilot-company" name="company" type="text" autocomplete="organization" required value="Mullins Moving / Leadership" />
+          </div>
+          <div class="field full">
+            <label for="pilot-usecase">Primary Use Case</label>
+            <select id="pilot-usecase" name="useCase" required>
+              <option value="Evan Pilot Discussion">Evan pilot discussion</option>
+              <option value="Moving Quote Intake">Moving quote intake</option>
+              <option value="After-Hours Lead Capture">After-hours lead capture</option>
+              <option value="Customer Questions and Support">Customer questions and support</option>
+              <option value="CRM / Sales Handoff">CRM / sales handoff</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="pilot-notes">Notes</label>
+            <textarea id="pilot-notes" name="notes" placeholder="What would you like to review, change, or test next?"></textarea>
+          </div>
+        </div>
+
+        <div class="form-status" id="pilot-status" aria-live="polite"></div>
+        <button class="btn primary" type="submit">Send pilot request</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('pilot-modal');
+    const form = document.getElementById('pilot-form');
+    const statusEl = document.getElementById('pilot-status');
+    const openButtons = document.querySelectorAll('[data-open-pilot]');
+    const closeButtons = document.querySelectorAll('[data-close-pilot]');
+
+    function openPilotForm() {
+      modal.classList.add('is-open');
+      statusEl.textContent = '';
+      statusEl.className = 'form-status';
+      document.getElementById('pilot-name').focus();
+    }
+
+    function closePilotForm() {
+      modal.classList.remove('is-open');
+    }
+
+    openButtons.forEach((button) => button.addEventListener('click', openPilotForm));
+    closeButtons.forEach((button) => button.addEventListener('click', closePilotForm));
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) closePilotForm();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.classList.contains('is-open')) closePilotForm();
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      statusEl.textContent = 'Sending pilot request...';
+      statusEl.className = 'form-status';
+
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch('/api/pilot-discussion', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) throw new Error('Request failed');
+
+        form.reset();
+        document.getElementById('pilot-company').value = 'Mullins Moving / Leadership';
+        statusEl.textContent = 'Request sent. AI Fusion Labs will follow up directly.';
+        statusEl.className = 'form-status success';
+      } catch {
+        statusEl.textContent = 'Could not send yet. Please try again in a moment.';
+        statusEl.className = 'form-status error';
+      }
+    });
+  </script>
 </body>
 </html>
