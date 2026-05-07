@@ -20,11 +20,6 @@ module.exports = async function handler(req, res) {
       return res.status(400).json({ error: 'All required fields must be completed.' });
     }
 
-    if (!process.env.RESEND_API_KEY) {
-      console.error('RESEND_API_KEY is not defined.');
-      return res.status(500).json({ error: 'Server configuration error.' });
-    }
-
     const html = `
       <div style="font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; color: #333; max-width: 640px;">
         <div style="border-bottom: 2px solid #4F46E5; padding-bottom: 15px; margin-bottom: 20px;">
@@ -57,6 +52,28 @@ module.exports = async function handler(req, res) {
         <p style="color: #888; font-size: 0.85em;">This request came from https://x-agent-mullins-moving.vercel.app/</p>
       </div>
     `;
+
+    if (!process.env.RESEND_API_KEY) {
+      console.warn('RESEND_API_KEY is not defined. Forwarding to primary X Agents signup API.');
+      const forwarded = await fetch('https://xagent.aifusionlabs.app/api/beta-signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          company,
+          useCase: `${useCase}${notes ? ` | Notes: ${notes}` : ''} | Source: Mullins Evan private screening room`,
+        }),
+      });
+
+      if (!forwarded.ok) {
+        const errorText = await forwarded.text();
+        console.error('Primary signup API error:', errorText);
+        return res.status(502).json({ error: 'Email delivery failed.' });
+      }
+
+      return res.status(200).json({ success: true, forwarded: true });
+    }
 
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
